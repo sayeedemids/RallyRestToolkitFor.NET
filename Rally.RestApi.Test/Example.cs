@@ -8,60 +8,62 @@ using Rally.RestApi.Response;
 
 namespace Rally.RestApi.Test
 {
-    /// <summary>
-    /// Summary description for Example
-    /// </summary>
-    [TestClass]
-    public class Example
-    {
-        public Example()
-        {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
+	// Git Test Comment
 
-        private TestContext testContextInstance;
+	/// <summary>
+	/// Summary description for Example
+	/// </summary>
+	[TestClass]
+	public class Example
+	{
+		public Example()
+		{
+			//
+			// TODO: Add constructor logic here
+			//
+		}
 
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+		private TestContext testContextInstance;
 
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
+		/// <summary>
+		///Gets or sets the test context which provides
+		///information about and functionality for the current test run.
+		///</summary>
+		public TestContext TestContext
+		{
+			get
+			{
+				return testContextInstance;
+			}
+			set
+			{
+				testContextInstance = value;
+			}
+		}
 
-        /*[TestMethod]
+		#region Additional test attributes
+		//
+		// You can use the following additional attributes as you write your tests:
+		//
+		// Use ClassInitialize to run code before running the first test in the class
+		// [ClassInitialize()]
+		// public static void MyClassInitialize(TestContext testContext) { }
+		//
+		// Use ClassCleanup to run code after all tests in a class have run
+		// [ClassCleanup()]
+		// public static void MyClassCleanup() { }
+		//
+		// Use TestInitialize to run code before running each test 
+		// [TestInitialize()]
+		// public void MyTestInitialize() { }
+		//
+		// Use TestCleanup to run code after each test has run
+		// [TestCleanup()]
+		// public void MyTestCleanup() { }
+		//
+		#endregion
+
+		/*[TestMethod]
         public void TestMethod1()
         {
             //Initialize the REST API
@@ -99,5 +101,5 @@ namespace Rally.RestApi.Test
             //Delete the item
             OperationResult deleteResult = restApi.Delete(createResult.Reference);
         }*/
-    }
+	}
 }
