@@ -8,8 +8,6 @@ using Rally.RestApi.Response;
 
 namespace Rally.RestApi.Test
 {
-	// Git Test Comment
-
 	/// <summary>
 	/// Summary description for Example
 	/// </summary>
