@@ -4,13 +4,13 @@ using System.Text.RegularExpressions;
 
 namespace Rally.RestApi
 {
-    /// <summary>
-    /// The Ref class contains a set of utility methods
-    /// for working with refs.
-    /// </summary>
-    public static class Ref
-    {
-        private static List<Regex> regexes = new List<Regex>() {
+	/// <summary>
+	/// The Ref class contains a set of utility methods
+	/// for working with refs.
+	/// </summary>
+	public static class Ref
+	{
+		private static List<Regex> regexes = new List<Regex>() {
 
             //dynatype collection ref (/portfolioitem/feature/1234/children)
             new Regex (".*/(\\w{2,}/\\w+)/(\\d+/\\w+)(?:\\.js)*(?:\\?.*)*$"),
@@ -22,67 +22,67 @@ namespace Rally.RestApi
             new Regex (".*/(\\w+/-?\\d+)/(\\w+)(?:\\.js)*(?:\\?.*)*$"),
 
             //basic ref (/defect/1234)
-            new Regex (".*/(\\w+)/(\\d+)(?:\\.js)*(?:\\?.*)*$"),
+            new Regex (".*/(\\w+)/(-?\\d+)(?:\\.js)*(?:\\?.*)*$"),
 
             //permission ref (/workspacepermission/123u456w1)
             new Regex (".*/(\\w+)/(\\d+u\\d+[pw]\\d+)(?:\\.js)*(?:\\?.*)*$"),
         };
 
-        private static Match GetMatch(string reference)
-        {
-            foreach (Regex r in regexes)
-            {
-                if (r.IsMatch(reference ?? ""))
-                {
-                    return r.Match(reference);
-                }
-            }
+		private static Match GetMatch(string reference)
+		{
+			foreach (Regex r in regexes)
+			{
+				if (r.IsMatch(reference ?? ""))
+				{
+					return r.Match(reference);
+				}
+			}
 
-            return null;
-        }
+			return null;
+		}
 
-        /// <summary>
-        /// Determine whether the specified string is a reference
-        /// </summary>
-        /// <param name="reference">the ref to test</param>
-        /// <returns>true if a ref, false otherwise</returns>
-        public static bool IsRef(string reference)
-        {
-            return GetMatch(reference) != null;   
-        }
+		/// <summary>
+		/// Determine whether the specified string is a reference
+		/// </summary>
+		/// <param name="reference">the ref to test</param>
+		/// <returns>true if a ref, false otherwise</returns>
+		public static bool IsRef(string reference)
+		{
+			return GetMatch(reference) != null;
+		}
 
-        /// <summary>
-        /// Get a relative ref from the specified ref.
-        /// All server information will be stripped before being returned.
-        /// </summary>
-        /// <param name="reference">The absolute ref to be made relative</param>
-        /// <returns>The relative version of the specified absolute ref</returns>
-        public static string GetRelativeRef(string reference)
-        {
-            Match m = GetMatch(reference);
-            return m != null ? String.Format("/{0}/{1}", m.Groups[1].Value, m.Groups[2].Value) : null;
-        }
+		/// <summary>
+		/// Get a relative ref from the specified ref.
+		/// All server information will be stripped before being returned.
+		/// </summary>
+		/// <param name="reference">The absolute ref to be made relative</param>
+		/// <returns>The relative version of the specified absolute ref</returns>
+		public static string GetRelativeRef(string reference)
+		{
+			Match m = GetMatch(reference);
+			return m != null ? String.Format("/{0}/{1}", m.Groups[1].Value, m.Groups[2].Value) : null;
+		}
 
-        /// <summary>
-        /// Get the type from the specified ref
-        /// </summary>
-        /// <param name="reference">The ref to get the type from</param>
-        /// <returns>The type of the specified ref</returns>
-        public static string GetTypeFromRef(string reference)
-        {
-            Match m = GetMatch(reference);
-            return m != null ? m.Groups[1].Value : null;
-        }
+		/// <summary>
+		/// Get the type from the specified ref
+		/// </summary>
+		/// <param name="reference">The ref to get the type from</param>
+		/// <returns>The type of the specified ref</returns>
+		public static string GetTypeFromRef(string reference)
+		{
+			Match m = GetMatch(reference);
+			return m != null ? m.Groups[1].Value : null;
+		}
 
-        /// <summary>
-        /// Get the object id from the specified ref
-        /// </summary>
-        /// <param name="reference">The ref to get the object id from</param>
-        /// <returns>The object id of the specified ref</returns>
-        public static string GetOidFromRef(string reference)
-        {
-            Match m = GetMatch(reference);
-            return m != null ? m.Groups[2].Value : null;
-        } 
-    }
+		/// <summary>
+		/// Get the object id from the specified ref
+		/// </summary>
+		/// <param name="reference">The ref to get the object id from</param>
+		/// <returns>The object id of the specified ref</returns>
+		public static string GetOidFromRef(string reference)
+		{
+			Match m = GetMatch(reference);
+			return m != null ? m.Groups[2].Value : null;
+		}
+	}
 }
