@@ -13,7 +13,7 @@ namespace Rally.RestApi.Test
 	{
 		private static string defectOid;
 
-		RallyRestApi GetRallyRestApi(string userName = "", string password = "",
+		public static RallyRestApi GetRallyRestApi(string userName = "", string password = "",
 				string server = "", string wsapiVersion = "")
 		{
 			if (String.IsNullOrWhiteSpace(userName))
