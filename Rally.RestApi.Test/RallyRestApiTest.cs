@@ -289,7 +289,10 @@ namespace Rally.RestApi.Test
 												};
 			QueryResult qr = restApi.Query(request);
 			Assert.IsTrue(qr.Success, "Query Success");
-			Assert.AreEqual(qr.TotalResultCount, qr.Results.Count());
+			if (qr.TotalResultCount > request.Limit)
+				Assert.AreEqual(request.Limit, qr.Results.Count());
+			else
+				Assert.AreEqual(qr.TotalResultCount, qr.Results.Count());
 		}
 
 		[TestMethod]
