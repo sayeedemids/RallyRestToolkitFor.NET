@@ -59,6 +59,7 @@
     <Compile Include="HttpService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query.cs" />
+    <Compile Include="RallyUnavailableException.cs" />
     <Compile Include="Ref.cs" />
     <Compile Include="Response\CacheableQueryResult.cs" />
     <Compile Include="Response\OperationResult.cs" />
